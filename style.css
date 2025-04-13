@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", serif;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    background-color: #c4c4c400;
+    width: 336px;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.up-part {
+    height: 28px;
+    width: 100%;
+    background-color: #FFDC40;
+}
+
+.down-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px;
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 26px;
+    margin-top: -7px;
+    margin-bottom: 16px;
+}
+
+.arrow {
+    margin-left: auto;
+    margin-right: 8px;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    opacity: 1;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 11px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    outline: none;
+    box-shadow: 0px 0px 1px black;
+    padding: 10px;
+    padding-right: 27px;   
+}
+
+.input-container textarea {
+    padding: 0 10px;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 17px;
+    field-sizing: content;
+    margin-right:5px;
+    max-height: 110px;    
+    scrollbar-width: thin;  
+    font-family: "Roboto", serif;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.delete:hover {
+    content: url(./images/delete-hover.svg)
+}
+
+.add-container{
+    position: relative;
+    margin: 18px 0;
+}
+
+button {
+    width: 150px;
+    height: 42px;
+    background-color: #833AE0;
+    color: white;
+    border: none;
+    border-radius: 71px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9953F1;
+}
+
+
+.plus {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #9953F1;
+    display: inline-block;
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+
+.plus:hover {
+    background-color: #AA68FE;
+}
+
+.list {
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px black;
+    width: 100%;
+    margin-top: 11px;
+    padding: 10px 27px;
+    display: none;
+    max-height: 210px;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+}
+
+.list-div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.list-div:last-child {
+    margin-bottom: 0;
+}
