@@ -1,24 +1,52 @@
+let card = document.querySelector(".card");
 let deleteBtn = document.querySelector(".delete");
 let addBtn = document.querySelector("button");
 let plusBtn = document.querySelector(".plus");
 let list = document.querySelector(".list");
-let input = document.querySelector("textarea");
-let inputContainer = document.querySelector(".input-container");
+let inputList = document.querySelector(".input-list");
 let arrow = document.querySelector(".arrow");
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    plusBtn.click();
+
+});
 
 plusBtn.addEventListener("click", (event) => {
     event.stopPropagation();
-    if (getComputedStyle(inputContainer).display == "none") {
-        inputContainer.style.display = "flex";
-        input.value = "";
-        input.style.height = ''; 
-    }
+
+    inputList.style.display = "block";
+    let input = document.createElement("textarea");
+    let inputContainer = document.createElement("div");
+    inputContainer.className = "input-container";
+    input.rows = "1";
+    input.required = true;
+    input.placeholder = "Enter your task...";
+    input.value = "";
+    input.style.height = '';
+    inputContainer.append(input);
+    let deleteBtn = document.createElement("img");
+    deleteBtn.src = "./images/delete.svg";
+    deleteBtn.classList.add("delete");
+    deleteBtn.alt = "delete";
+    deleteBtn.addEventListener("click", () => {
+        inputList.removeChild(inputContainer);
+        if (inputList.childElementCount === 0) {
+            inputList.style.display = "none";
+        }
+    });
+    inputContainer.append(deleteBtn);
+    inputContainer.style.display = "flex";
+    inputList.append(inputContainer);
+
 });
 
 addBtn.addEventListener("click", (event) => {
 
-    event.preventDefault(); 
-       if(input.value.trim() == "" ) {
+    let inputs = document.querySelectorAll(".input-container textarea");
+
+    inputs.forEach((input) => {
+        if (input.value.trim() == "") {
             return;
         }
 
@@ -35,24 +63,22 @@ addBtn.addEventListener("click", (event) => {
                 list.style.display = "none";
             }
         });
-        listText.innerHTML = input.value;
+        listText.value = input.value;
         listDiv.append(listText);
         listDiv.append(listImg);
         list.append(listDiv);
-        input.value = "";
-        inputContainer.style.display = "none";
-    
+        inputList.removeChild(input.parentElement);
+
+    });
+
     if (getComputedStyle(list).display == "none" && list.childElementCount != 0) {
         list.style.display = "block";
+
     }
 
 });
 
-deleteBtn.addEventListener("click", () => {
-    input.value = "";
-    inputContainer.style.display = "none";
-    input.style.height = '';
-});
+
 
 arrow.addEventListener("click", () => {
     if (arrow.classList.contains("arrow-down")) {
